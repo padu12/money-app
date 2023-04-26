@@ -40,13 +40,19 @@ public class RecordService {
 	}
 	
 	public int getBalance() {
-		List<Recording> records = recordRepository.findAll();
-		int sum = 0;
+		List<Recording> incomeRecords = recordRepository.findByType("income");
+		List<Recording> expenceRecords = recordRepository.findByType("expence");
+		int incomeSum = 0;
+		int expenceSum = 0;
 		
-		for (Recording record : records) {
-			sum += record.getAmount();
+		for (Recording record : incomeRecords) {
+			incomeSum += record.getAmount();
 		}
 		
-		return sum;
+		for (Recording record : expenceRecords) {
+			expenceSum += record.getAmount();
+		}
+		
+		return incomeSum-expenceSum;
 	}
 }
