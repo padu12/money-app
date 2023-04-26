@@ -2,8 +2,14 @@ package ua.odessa.moneyApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+@EnableJpaRepositories("ua.odessa.moneyApp.repositories")
+@ComponentScan(basePackages = { "ua.odessa.moneyApp" })
+@EntityScan("ua.odessa.moneyApp.models") 
 public class MoneyAppApplication {
 
 	public static void main(String[] args) {

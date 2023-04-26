@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+</head>
+<body>
+<h1 th:text="'Your balance: '+ ${balance}"></h1>
+<hr>
+<form th:method="GET" th:action="@{/create}">
+	<input type="submit" value="Add a record"/>
+</form>
+<br>
+<div th:each="record : ${records}">
+    
+     <a th:href="@{/{id}(id=${record.getId()})}"
+      th:text="${record.getAmount() + ', ' + record.getType()}">user</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/create1}" th:object="${record}">
+    <label for="record">Select type: </label>
+	<select id="record" name="record" th:field="*{type}">
+		<option value="income">Income</option>
+		<option value="expence">Expence</option>
+	</select>
+	<br/>
+	<label for="amount">Enter amount: </label>
+    <input type="text" th:field="*{amount}" id="amount"/>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+</body>
+</html>
