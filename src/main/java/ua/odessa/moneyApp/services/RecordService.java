@@ -11,7 +11,7 @@ import ua.odessa.moneyApp.repositories.RecordRepository;
 
 @Service
 @Transactional(readOnly = true)
-public class RecordService {
+public class  RecordService {
 	
 	private final RecordRepository recordRepository;
 

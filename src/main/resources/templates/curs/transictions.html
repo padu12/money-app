@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>FCS - Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="styles/mainstyle.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-sm  navbar-dark">
+    <a class="navbar-brand" href="main.html">FCS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="analytics.html">Transaction</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="report.html">Report</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="investing.html">Investing</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <div class="text-center mt-5">
+        <h2>Total Balance:</h2>
+        <h1>1000$</h1>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h3>Income: <span class="text-success">0$</span></h3>
+              <!-- Твой код для блока Income -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h3>Outgo: <span class="text-danger">0$</span></h3>
+              <!-- Твой код для блока Outcome -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h3>Period: <span class="text-primary">may</span></h3>
+              <!-- Твой код для блока Period -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <button class="btn btn-primary" data-toggle="collapse" data-target="#transactionForm">Add
+                Transaction</button>
+              <div id="transactionForm" class="collapse mt-3">
+                <form>
+                  <div class="form-group">
+                    <label for="transactionAmount">Amount:</label>
+                    <input placeholder="Enter &rdquo;-&rdquo; for outgo" type="number" class="form-control" id="transactionAmount" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+
+
+
+
+  <footer class="bg-white">
+    <!-- Copyrights -->
+    <div class="bg-light py-4">
+      <div class="container text-center">
+        <p class="text-muted mb-0 py-2">© 2023 FCS All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
