@@ -36,15 +36,14 @@
   <main>
     <div class="container">
       <div class="text-center mt-5">
-        <h2>Total Balance:</h2>
-        <h1>1000$</h1>
+        <h2 th:text="${'Total Balance: ' + user.getBalance() + '$'}">Total Balance:</h2>
       </div>
 
       <div class="row mt-5">
         <div class="col-md-6 mb-4">
           <div class="card">
             <div class="card-body">
-              <h3>Income: <span class="text-success">0$</span></h3>
+              <h3>Income: <span th:text="${user.getIncome() + '$'}" class="text-success">0$</span></h3>
               <!-- Твой код для блока Income -->
             </div>
           </div>
@@ -52,7 +51,7 @@
         <div class="col-md-6 mb-4">
           <div class="card">
             <div class="card-body">
-              <h3>Outgo: <span class="text-danger">0$</span></h3>
+              <h3>Outgo: <span th:text="${user.getOutgo() + '$'}" class="text-danger">0$</span></h3>
               <!-- Твой код для блока Outcome -->
             </div>
           </div>
@@ -74,10 +73,11 @@
               <button class="btn btn-primary" data-toggle="collapse" data-target="#transactionForm">Add
                 Transaction</button>
               <div id="transactionForm" class="collapse mt-3">
-                <form>
+                <form th:method="POST" th:action="@{/transiction}" th:object="${integer}">
                   <div class="form-group">
                     <label for="transactionAmount">Amount:</label>
-                    <input placeholder="Enter &rdquo;-&rdquo; for outgo" type="number" class="form-control" id="transactionAmount" required>
+                    <input  th:field="${integer}"
+                            placeholder="Enter &rdquo;-&rdquo; for outgo" type="number" class="form-control" id="transactionAmount" required>
                   </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -86,6 +86,8 @@
           </div>
         </div>
       </div>
+    </div>
+
   </main>
 
 
