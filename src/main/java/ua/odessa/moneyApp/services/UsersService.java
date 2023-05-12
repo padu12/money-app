@@ -17,14 +17,16 @@ public class UsersService {
         return usersRepository.findById(1).orElse(null);
     }
 
-    public void transaction(int id, int amount){
-        Users user = usersRepository.findById(id).orElse(null);
+    public void transaction(String amount){
+        int amount1 = Integer.valueOf(amount);
+        Users user = usersRepository.findById(1).orElse(null);
 
-        if(amount > 0) {
-            user.setIncome(user.getIncome()+amount);
+        if(amount1 > 0) {
+            user.setIncome(user.getIncome()+amount1);
         } else {
-            user.setOutgo(user.getOutgo()-amount);
+            user.setOutgo(user.getOutgo()-amount1);
         }
-        user.setBalance(user.getBalance()+amount);
+        user.setBalance(user.getBalance()+amount1);
+        usersRepository.save(user);
     }
 }

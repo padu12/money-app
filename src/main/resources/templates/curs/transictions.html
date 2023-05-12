@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="styles/mainstyle.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -36,7 +36,7 @@
   <main>
     <div class="container">
       <div class="text-center mt-5">
-        <h2 th:text="${'Total Balance: ' + user.getBalance() + '$'}">Total Balance:</h2>
+        <h2 th:text="${'Total Balance: ' + user.getBalance() + '$'}">Total Balance: 100$</h2>
       </div>
 
       <div class="row mt-5">
@@ -73,10 +73,10 @@
               <button class="btn btn-primary" data-toggle="collapse" data-target="#transactionForm">Add
                 Transaction</button>
               <div id="transactionForm" class="collapse mt-3">
-                <form th:method="POST" th:action="@{/transiction}" th:object="${integer}">
+                <form th:method="POST" th:action="@{/make-transaction}">
                   <div class="form-group">
                     <label for="transactionAmount">Amount:</label>
-                    <input  th:field="${integer}"
+                    <input name="number"
                             placeholder="Enter &rdquo;-&rdquo; for outgo" type="number" class="form-control" id="transactionAmount" required>
                   </div>
                   <button type="submit" class="btn btn-primary">Submit</button>

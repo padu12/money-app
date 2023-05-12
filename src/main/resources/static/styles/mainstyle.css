@@ -1,0 +1,59 @@
+.main-info h5{
+  font-size: 35px;
+}
+nav {
+  background-color:#393646;
+}
+.main-info {
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+footer{
+  margin-top: auto;
+}
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#button-addon1 {
+  color: #ffc371;
+}
+
+i {
+  color: #ffc371;
+}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.form-control.shadow-0:focus {
+  box-shadow: none;
+}
+
+/* максимальная ширина экрана 768px */
+@media (max-width: 768px) {
+  .main-info .card {
+    margin-bottom: 20px;
+  }
+}
+
+/* максимальная ширина экрана 576px */
+@media (max-width: 576px) {
+  .jumbotron h1 {
+    font-size: 36px;
+  }
+  .jumbotron p {
+    font-size: 18px;
+  }
+  .jumbotron a.btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  .main-info .card {
+    margin-bottom: 20px;
+  }
+}
