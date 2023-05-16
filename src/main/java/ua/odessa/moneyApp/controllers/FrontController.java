@@ -28,4 +28,15 @@ public class FrontController {
         usersService.transaction(number);
         return "redirect:/transaction";
     }
+
+    @GetMapping("/report")
+    public String report() {
+        return "curs/report";
+    }
+
+    @GetMapping("/investing")
+    public String investing() {
+        return "curs/investing";
+    }
+
 }

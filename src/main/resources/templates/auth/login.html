@@ -6,7 +6,7 @@
     <title>FCS - Sign in</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="styles/mainstyle.css">
+    <link rel="stylesheet" href="../curs/styles/mainstyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -16,20 +16,20 @@
 <body>
 
     <nav class="navbar navbar-expand-sm  navbar-dark">
-        <a class="navbar-brand" href="main.html">FCS</a>
+        <a class="navbar-brand" href="../curs/main.html">FCS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="main.html">Home</a>
+                    <a class="nav-link" href="../curs/main.html">Home</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="../curs/about.html">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="reg.html">Sign in</a>
+                    <a class="nav-link active" href="registration.html">Sign in</a>
                 </li>
             </ul>
         </div>
@@ -41,10 +41,10 @@
     <div id="content" class="container my-5">
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <form>
+                <form name = "f" method="post" action="/process_login">
                     <div class="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        <label for="username">Email address</label>
+                        <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                             else.</small>
                     </div>
@@ -52,7 +52,7 @@
                         <label for="password">Password</label>
                         <input type="password" class="form-control" id="password">
                     </div>
-                    <a href="transictions.html" class="mt-4 btn btn-primary btn-lg">Submit</a>
+                    <input type="submit" class="mt-4 btn btn-primary btn-lg"/>
                 </form>
             </div>
         </div>
