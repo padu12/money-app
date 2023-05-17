@@ -17,10 +17,25 @@ public class FrontController {
         this.usersService = usersService;
     }
 
+    @GetMapping("/")
+    public String none() {
+        return "redirect:/main";
+    }
+
     @GetMapping("/transaction")
     public String transaction(Model model) {
         model.addAttribute("user", usersService.findOne());
         return "curs/transictions";
+    }
+
+    @GetMapping("/main")
+    public String home() {
+        return "curs/main";
+    }
+
+    @GetMapping("/about")
+    public String about() {
+        return "curs/about";
     }
 
     @PostMapping("/make-transaction")

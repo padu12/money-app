@@ -1,6 +1,7 @@
 package ua.odessa.moneyApp.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -14,17 +15,26 @@ public class  Person {
   @Column(name = "id")
   private int id;
 
-  @NotEmpty(message = "Email shouldn't be empty")
-  @Column(name = "username")
-  private String username;
-
-  @NotEmpty(message = "Имя не должно быть пустым")
-  @Size(min = 2, max = 100, message = "Имя должно быть от 2 до 100 символов длинной")
+  @NotEmpty(message = "Username shouldn''t be empty")
+  @Size(min = 2, max = 100, message = "Username''s length should be bigger then 2 characters")
   @Column(name = "name")
   private String name;
 
+  @NotEmpty(message = "Email shouldn''t be empty")
+  @Email(message = "Email does not match the email template")
+  @Column(name = "username")
+  private String username;
+
+  @Size(min = 8, max = 20, message = "Your password''s length should be between 8 and 20 characters")
+  @NotEmpty(message = "Password shouldn''t be empty")
   @Column(name = "password")
   private String password;
+
+  @Transient
+  private String repeatPassword;
+
+  @OneToOne(mappedBy = "person")
+  private Users users;
 
   public Person() {
   }
@@ -33,6 +43,14 @@ public class  Person {
     this.username = username;
     this.name = name;
     this.password = password;
+  }
+
+  public String getRepeatPassword() {
+    return repeatPassword;
+  }
+
+  public void setRepeatPassword(String repeatPassword) {
+    this.repeatPassword = repeatPassword;
   }
 
   public int getId() {

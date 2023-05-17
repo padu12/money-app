@@ -6,7 +6,7 @@
     <title>FCS - Sign in</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../curs/styles/mainstyle.css">
+    <link rel="stylesheet" href="../styles/mainstyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -16,20 +16,21 @@
 <body>
 
     <nav class="navbar navbar-expand-sm  navbar-dark">
-        <a class="navbar-brand" href="../curs/main.html">FCS</a>
+        <a class="navbar-brand" href="/main">FCS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../curs/main.html">Home</a>
+                    <a class="nav-link" href="/main">Home</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="../curs/about.html">About</a>
+                    <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="registration.html">Sign in</a>
+                    <a class="nav-link active" href="/auth/registration">Sign in</a>
+
                 </li>
             </ul>
         </div>
@@ -44,15 +45,18 @@
                 <form name = "f" method="post" action="/process_login">
                     <div class="form-group">
                         <label for="username">Email address</label>
-                        <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                             else.</small>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password">
+                        <input type="password" name="password" class="form-control" id="password">
                     </div>
                     <input type="submit" class="mt-4 btn btn-primary btn-lg"/>
+                    <div th:if="${param.error}" style="color: red">
+                        Incorrect email or password
+                    </div>
                 </form>
             </div>
         </div>

@@ -31,7 +31,7 @@ public class SecurityConfig {
             .disable()
             .authenticationManager(authenticationManager)
             .authorizeHttpRequests()
-            .requestMatchers("/auth/login", "auth/registration", "/error")
+            .requestMatchers("/styles/mainstyle.css", "/auth/login", "auth/registration", "/main", "/about", "/", "/error")
             .permitAll()
             .anyRequest()
             .authenticated()
@@ -40,7 +40,11 @@ public class SecurityConfig {
             .loginPage("/auth/login")
             .loginProcessingUrl("/process_login")
             .defaultSuccessUrl("/transaction", true)
-            .failureUrl("/auth/login?error");
+            .failureUrl("/auth/login?error")
+            .and()
+            .logout()
+            .logoutUrl("/logout")
+            .logoutSuccessUrl("/auth/login");
     return http.build();
   }
 
