@@ -6,6 +6,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Person")
 public class  Person {
@@ -33,8 +35,8 @@ public class  Person {
   @Transient
   private String repeatPassword;
 
-  @OneToOne(mappedBy = "person")
-  private Users users;
+  @OneToMany(mappedBy = "personId")
+  private List<Recording> recordings;
 
   public Person() {
   }

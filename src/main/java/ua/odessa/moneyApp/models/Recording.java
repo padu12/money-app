@@ -1,35 +1,46 @@
 package ua.odessa.moneyApp.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Record")
+@Table(name = "Recording")
 public class Recording {
 
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
+	@ManyToOne()
+	@JoinColumn(name = "person_id", referencedColumnName = "id")
+	private Person personId;
 	
 	@Column(name = "type")
 	private String type;
-	
-	@Column(name = "amount")
-	private int amount;
+
+	@Column(name = "month")
+	private String month;
+
+	@Column(name = "value")
+	private int value;
 
 	public Recording() {
 		super();
 	}
 
-	public Recording(String type, int amount) {
-		super();
+	public Recording(Person personId, String type, String month, int value) {
+		this.personId = personId;
 		this.type = type;
-		this.amount = amount;
+		this.month = month;
+		this.value = value;
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
 	}
 
 	public int getId() {
@@ -40,6 +51,14 @@ public class Recording {
 		this.id = id;
 	}
 
+	public Person getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(Person personId) {
+		this.personId = personId;
+	}
+
 	public String getType() {
 		return type;
 	}
@@ -48,13 +67,11 @@ public class Recording {
 		this.type = type;
 	}
 
-	public int getAmount() {
-		return amount;
+	public String getMonth() {
+		return month;
 	}
 
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setMonth(String month) {
+		this.month = month;
 	}
-	
-	
 }

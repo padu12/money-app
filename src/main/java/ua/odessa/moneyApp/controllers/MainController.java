@@ -3,29 +3,28 @@ package ua.odessa.moneyApp.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import ua.odessa.moneyApp.models.Recording;
-import ua.odessa.moneyApp.services.RecordService;
+import ua.odessa.moneyApp.services.RecordingService;
 
 @Controller
 public class MainController {
 
-	private final RecordService recordService;
+	private final RecordingService recordService;
 	
 	@Autowired
-	public MainController(RecordService recordService) {
+	public MainController(RecordingService recordService) {
 		super();
 		this.recordService = recordService;
 	}
 
 	@GetMapping("/home")
 	public String goHome(Model model) {
-		model.addAttribute("balance", recordService.getBalance());
+//		model.addAttribute("balance", recordService.getBalance());
 		model.addAttribute("records", recordService.findAll());
 		return "home";
 	}

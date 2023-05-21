@@ -37,22 +37,22 @@
   <main>
     <div class="container">
       <div class="text-center mt-5">
-        <h2 th:text="${'Total Balance: ' + user.getBalance() + '$'}">Total Balance: 100$</h2>
+<!--        <h2 th:text="${'Total Balance: ' + user.getBalance() + '$'}">Total Balance: 100$</h2>-->
       </div>
 
       <div class="row mt-5">
         <div class="col-md-6 mb-4">
           <div class="card">
             <div class="card-body">
-              <h3>Income: <span th:text="${user.getIncome() + '$'}" class="text-success">0$</span></h3>
-              <!-- Твой код для блока Income -->
+<!--              <h3>Income: <span th:text="${user.getIncome() + '$'}" class="text-success">0$</span></h3>-->
+<!--               Твой код для блока Income -->
             </div>
           </div>
         </div>
         <div class="col-md-6 mb-4">
           <div class="card">
             <div class="card-body">
-              <h3>Outgo: <span th:text="${user.getOutgo() + '$'}" class="text-danger">0$</span></h3>
+<!--              <h3>Outgo: <span th:text="${user.getOutgo() + '$'}" class="text-danger">0$</span></h3>-->
               <!-- Твой код для блока Outcome -->
             </div>
           </div>
@@ -85,6 +85,16 @@
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          <table>
+            <tr th:each="record : ${records}">
+              <td th:text="${record.getValue()}">1</td>
+              <td th:text="${record.getType()}">2</td>
+            </tr>
+          </table>
+<!--          <span th:href="@{/{id}(id=${record.getId()})}"-->
+<!--             th:text="${record.getValue() + ', ' + record.getType()}">user</span>-->
         </div>
       </div>
     </div>
