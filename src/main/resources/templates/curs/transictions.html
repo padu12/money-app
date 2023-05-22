@@ -37,14 +37,14 @@
   <main>
     <div class="container">
       <div class="text-center mt-5">
-<!--        <h2 th:text="${'Total Balance: ' + user.getBalance() + '$'}">Total Balance: 100$</h2>-->
+        <h2 th:text="${'Total Balance: ' + balance + '$'}">Total Balance: 100$</h2>
       </div>
 
       <div class="row mt-5">
         <div class="col-md-6 mb-4">
           <div class="card">
             <div class="card-body">
-<!--              <h3>Income: <span th:text="${user.getIncome() + '$'}" class="text-success">0$</span></h3>-->
+              <h3>Income: <span th:text="${income + '$'}" class="text-success">0$</span></h3>
 <!--               Твой код для блока Income -->
             </div>
           </div>
@@ -52,7 +52,7 @@
         <div class="col-md-6 mb-4">
           <div class="card">
             <div class="card-body">
-<!--              <h3>Outgo: <span th:text="${user.getOutgo() + '$'}" class="text-danger">0$</span></h3>-->
+              <h3>Outgo: <span th:text="${outgo + '$'}" class="text-danger">0$</span></h3>
               <!-- Твой код для блока Outcome -->
             </div>
           </div>
@@ -74,10 +74,25 @@
               <button class="btn btn-primary" data-toggle="collapse" data-target="#transactionForm">Add
                 Transaction</button>
               <div id="transactionForm" class="collapse mt-3">
-                <form th:method="POST" th:action="@{/make-transaction}">
+                <form th:method="POST" th:action="@{/make-transaction}" th:object="${record}">
                   <div class="form-group">
+                    <label for="month">Month: </label>
+                    <select th:field="*{month}" id="month">
+                      <option value="january">January</option>
+                      <option value="february">February</option>
+                      <option value="march">March</option>
+                      <option value="april">April</option>
+                      <option value="may">May</option>
+                      <option value="june">June</option>
+                      <option value="july">July</option>
+                      <option value="august">August</option>
+                      <option value="september">September</option>
+                      <option value="october">October</option>
+                      <option value="november">November</option>
+                      <option value="december">December</option>
+                    </select>
                     <label for="transactionAmount">Amount:</label>
-                    <input name="number"
+                    <input th:field="*{value}"
                             placeholder="Enter &rdquo;-&rdquo; for outgo" type="number" class="form-control" id="transactionAmount" required>
                   </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
@@ -89,8 +104,9 @@
         <div>
           <table>
             <tr th:each="record : ${records}">
-              <td th:text="${record.getValue()}">1</td>
               <td th:text="${record.getType()}">2</td>
+              <td th:text="${record.getValue()}">1</td>
+              <td th:text="${record.getMonth()}"></td>
             </tr>
           </table>
 <!--          <span th:href="@{/{id}(id=${record.getId()})}"-->
