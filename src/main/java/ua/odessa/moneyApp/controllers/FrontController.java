@@ -47,8 +47,8 @@ public class FrontController {
     }
 
     @PostMapping("/make-transaction")
-    public String makeTransaction(@ModelAttribute("record") Recording recording) {
-        recordingService.save(recording);
+    public String makeTransaction(@ModelAttribute("record") Recording recording, @RequestParam String month) {
+        recordingService.save(recording, month);
         return "redirect:/transaction";
     }
 

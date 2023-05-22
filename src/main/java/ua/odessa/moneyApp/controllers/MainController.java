@@ -36,7 +36,7 @@ public class MainController {
 	
 	@PostMapping("/create1")
 	public String newRecord(@ModelAttribute("record") Recording record) {
-		recordService.save(record);
+//		recordService.save(record);
 		return "redirect:/home";
 	}
 	
@@ -49,7 +49,7 @@ public class MainController {
 	@PostMapping("/edit/{id}")
 	public String change(@PathVariable("id") int id, 
 						@ModelAttribute("record") Recording record) {
-		recordService.save(record);
+//		recordService.save(record);
 		return "redirect:/home";
 	}
 	

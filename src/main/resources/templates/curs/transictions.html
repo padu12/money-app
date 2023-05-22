@@ -77,12 +77,12 @@
                 <form th:method="POST" th:action="@{/make-transaction}" th:object="${record}">
                   <div class="form-group">
                     <label for="month">Month: </label>
-                    <select th:field="*{month}" id="month">
+                    <select name="month" id="month">
                       <option value="january">January</option>
                       <option value="february">February</option>
                       <option value="march">March</option>
                       <option value="april">April</option>
-                      <option value="may">May</option>
+                      <option selected value="may">May</option>
                       <option value="june">June</option>
                       <option value="july">July</option>
                       <option value="august">August</option>

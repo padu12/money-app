@@ -114,10 +114,11 @@ public class RecordingService {
 	}
 	
 	@Transactional
-	public void save(Recording record) {
+	public void save(Recording record, String type) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		Person person = ((PersonDetails) authentication.getPrincipal()).getPerson();
 		record.setPersonId(person);
+		record.setType(type);
 
 		if (record.getValue() < 0) {
 			record.setType("outgo");
