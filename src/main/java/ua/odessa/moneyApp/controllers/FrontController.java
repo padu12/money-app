@@ -28,7 +28,8 @@ public class FrontController {
 
     @GetMapping("/transaction")
     public String transaction(@ModelAttribute("record") Recording record, Model model) {
-        model.addAttribute("records", recordingService.findAll());
+        model.addAttribute("incomeRecords", recordingService.findAllIncome());
+        model.addAttribute("outgoRecords", recordingService.findAllOutgo());
         model.addAttribute("balance", personService.getBalance());
         model.addAttribute("income", personService.getIncome());
         model.addAttribute("outgo", personService.getOutgo());

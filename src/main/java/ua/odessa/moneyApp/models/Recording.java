@@ -24,15 +24,27 @@ public class Recording {
 	@Column(name = "value")
 	private int value;
 
+	@Column(name = "description")
+	private String description;
+
 	public Recording() {
 		super();
 	}
 
-	public Recording(Person personId, String type, String month, int value) {
+	public Recording(Person personId, String type, String month, int value, String description) {
 		this.personId = personId;
 		this.type = type;
 		this.month = month;
 		this.value = value;
+		this.description = description;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public int getValue() {

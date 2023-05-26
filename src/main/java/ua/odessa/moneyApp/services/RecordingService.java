@@ -33,6 +33,14 @@ public class RecordingService {
 		return recordingRepository.findAll();
 	}
 
+	public List<Recording> findAllIncome() {
+		return recordingRepository.findAllByType("income");
+	}
+
+	public List<Recording> findAllOutgo() {
+		return recordingRepository.findAllByType("outgo");
+	}
+
 	public int[] findAllIncomeByMonthIn() {
 		List<Recording> list = recordingRepository.findAll();
 		int[] array = new int[12];

@@ -10,6 +10,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -35,6 +36,7 @@
     </div>
   </nav>
   <main>
+    <form th:method="POST" th:action="@{/make-transaction}" th:object="${record}">
     <div class="container">
       <div class="text-center mt-5">
         <h2 th:text="${'Total Balance: ' + balance + '$'}">Total Balance: 100$</h2>
@@ -59,61 +61,97 @@
         </div>
       </div>
 
+
       <div class="row mt-5">
         <div class="col-md-6 mb-4">
           <div class="card">
             <div class="card-body">
-              <h3>Period: <span class="text-primary">may</span></h3>
-              <!-- Твой код для блока Period -->
+              <h3>Period:
+                <select name="month" id="month">
+                  <option value="january">January</option>
+                  <option value="february">February</option>
+                  <option value="march">March</option>
+                  <option value="april">April</option>
+                  <option selected value="may">May</option>
+                  <option value="june">June</option>
+                  <option value="july">July</option>
+                  <option value="august">August</option>
+                  <option value="september">September</option>
+                  <option value="october">October</option>
+                  <option value="november">November</option>
+                  <option value="december">December</option>
+                </select>
+              </h3>
+
             </div>
           </div>
         </div>
+
         <div class="col-md-6 mb-4">
           <div class="card">
             <div class="card-body">
-              <button class="btn btn-primary" data-toggle="collapse" data-target="#transactionForm">Add
+              <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#transactionForm">Add
                 Transaction</button>
               <div id="transactionForm" class="collapse mt-3">
-                <form th:method="POST" th:action="@{/make-transaction}" th:object="${record}">
                   <div class="form-group">
-                    <label for="month">Month: </label>
-                    <select name="month" id="month">
-                      <option value="january">January</option>
-                      <option value="february">February</option>
-                      <option value="march">March</option>
-                      <option value="april">April</option>
-                      <option selected value="may">May</option>
-                      <option value="june">June</option>
-                      <option value="july">July</option>
-                      <option value="august">August</option>
-                      <option value="september">September</option>
-                      <option value="october">October</option>
-                      <option value="november">November</option>
-                      <option value="december">December</option>
-                    </select>
                     <label for="transactionAmount">Amount:</label>
                     <input th:field="*{value}"
                             placeholder="Enter &rdquo;-&rdquo; for outgo" type="number" class="form-control" id="transactionAmount" required>
                   </div>
+                  <div class="form-group">
+                    <label for="transactionDescription">Description:</label>
+                    <select th:field="*{description}" class="form-control" id="transactionDescription">
+                      <option style="color: red;" value="family">Family</option>
+                      <option style="color: red;" value="other">Other</option>
+                      <option style="color: red;" value="sport">Sport</option>
+                      <option style="color: red;" value="products">Products</option>
+                      <option style="color: red;" value="transport">Transport</option>
+                      <option style="color: green;" value="salary">Salary</option>
+                      <option style="color: green;" value="investings">Investings</option>
+                      <option style="color: green;" value="present">Present</option>
+                      <option style="color: green;" value="other">Other</option>
+                    </select>
+                  </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
               </div>
             </div>
           </div>
         </div>
-        <div>
-          <table>
-            <tr th:each="record : ${records}">
-              <td th:text="${record.getType()}">2</td>
-              <td th:text="${record.getValue()}">1</td>
-              <td th:text="${record.getMonth()}"></td>
-            </tr>
-          </table>
-<!--          <span th:href="@{/{id}(id=${record.getId()})}"-->
-<!--             th:text="${record.getValue() + ', ' + record.getType()}">user</span>-->
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-md-6 mb-2" style="width:1000%">
+          <div th:each="record : ${incomeRecords}">
+            <div class="card">
+              <div class="card-body">
+                <h3><span class="pr-2">&#183;</span>Date: <span th:text="${record.getMonth()}">may 21</span> <span
+                        th:text="${'+' + record.getValue() + '$'}"
+                        class="ml-auto text-success">+2000$</span> </h3>
+                <h4><span class="pl-2 pr-2">-</span>description:
+                  <span th:text="${record.getDescription()}" class="ml-auto text-primary">salary</span> </h4>
+              </div>
+            </div>
+            <br>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-2">
+          <div th:each="record : ${outgoRecords}">
+            <div class="card">
+              <div class="card-body">
+                <h3><span class="pr-2">&#183;</span>Date: <span th:text="${record.getMonth()}">may 21</span> <span
+                        th:text="${'-' + record.getValue() + '$'}"
+                        class="ml-auto text-danger">-2000$</span> </h3>
+                <h4><span class="pl-2 pr-2">-</span>description:
+                  <span th:text="${record.getDescription()}" class="ml-auto text-primary">salary</span> </h4>
+              </div>
+            </div>
+            <br>
+          </div>
         </div>
       </div>
     </div>
+      </form>
 
   </main>
 
