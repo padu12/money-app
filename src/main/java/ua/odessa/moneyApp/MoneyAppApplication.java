@@ -7,8 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories("ua.odessa.moneyApp.repositories")
-@EntityScan("ua.odessa.moneyApp.models") 
+//@EnableJpaRepositories("ua.odessa.moneyApp.repositories")
+//@EntityScan("ua.odessa.moneyApp.models")
 public class MoneyAppApplication {
 
 	public static void main(String[] args) {

@@ -10,4 +10,9 @@ class MoneyAppApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	public void balanceShouldBeCorrect() {
+
+	}
+
 }

@@ -31,7 +31,8 @@ public class SecurityConfig {
             .disable()
             .authenticationManager(authenticationManager)
             .authorizeHttpRequests()
-            .requestMatchers("/styles/mainstyle.css", "/auth/login", "auth/registration", "/main", "/about", "/", "/error")
+            .requestMatchers("/styles/mainstyle.css", "/auth/login", "auth/registration",
+                    "/main", "/about", "/", "/error")
             .permitAll()
             .anyRequest()
             .authenticated()
