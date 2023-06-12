@@ -12,5 +12,5 @@ import java.util.Optional;
 
 public interface RecordingRepository extends JpaRepository<Recording, Integer>{
 	List<Recording> findByPersonId(Person person);
-	List<Recording> findAllByType(String type);
+	List<Recording> findAllByTypeAndPersonId(String type, Person person);
 }

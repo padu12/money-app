@@ -36,7 +36,7 @@ public class RecordingRepositoryTests {
     }
 
     @Test
-    public void saveRecordignTest() {
+    public void saveRecordingTest() {
 
         Recording recording = new Recording(person, "income", "may", 100, "Salary");
 
@@ -46,7 +46,7 @@ public class RecordingRepositoryTests {
     }
 
     @Test
-    public void getPersonTest() {
+    public void getRecordingTest() {
 
         Recording recording = recordingRepository.findById(39).get();
 
@@ -54,7 +54,7 @@ public class RecordingRepositoryTests {
     }
 
     @Test
-    public void getListOfPeopleTest() {
+    public void getListOfRecordingsTest() {
 
         List<Recording> list = recordingRepository.findAll();
 

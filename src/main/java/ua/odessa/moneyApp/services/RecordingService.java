@@ -34,11 +34,15 @@ public class RecordingService {
 	}
 
 	public List<Recording> findAllIncome() {
-		return recordingRepository.findAllByType("income");
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
+		return recordingRepository.findAllByTypeAndPersonId("income", personDetails.getPerson());
 	}
 
 	public List<Recording> findAllOutgo() {
-		return recordingRepository.findAllByType("outgo");
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
+		return recordingRepository.findAllByTypeAndPersonId("outgo", personDetails.getPerson());
 	}
 
 	public int[] findAllIncomeByMonthIn() {
